@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bus;
+use App\Models\Compagnies;
 
 
 class BusController extends Controller
@@ -17,25 +18,19 @@ class BusController extends Controller
     {
         $bus = Bus::all();
  
-        return view('laravel-examples/show-bus-list',['bus'=>$bus]);
+        return view('laravel-examples/bus/show-bus-list',['bus'=>$bus]);
     }
-    public function trajetList()
+    public function compagniesList()
     {
-        $bus = Voyages::all();
+        $compagnie = Compagnies::all();
  
-        return view('laravel-examples/show-compagnies-list',['bus'=>$voyage]);
+        return view('laravel-examples/compagnies/show-compagnies-list',['compagnie'=>$compagnie]);
     }
     public function driversList()
     {
-        $bus = Chauffeurs::all();
+        $driver = Chauffeurs::all();
  
-        return view('laravel-examples/show-drivers-list',['bus'=>$driver]);
+        return view('laravel-examples/drivers/show-drivers-list',['driver'=>$driver]);
     }
-    public function garesList()
-    {
-        $bus = Gares::all();
- 
-        return view('laravel-examples/show-compagnies-list',['bus'=>$compagnie]);
-    }
-    
+
 }

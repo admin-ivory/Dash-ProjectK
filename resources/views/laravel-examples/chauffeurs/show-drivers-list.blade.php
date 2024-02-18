@@ -13,7 +13,7 @@ use \App\Http\Controllers\BusController;
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">Compagnies</h5>
+                            <h5 class="mb-0">All Users</h5>
                         </div>
                         <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
                         
@@ -48,8 +48,8 @@ use \App\Http\Controllers\BusController;
                                 </tr>
                             </thead>
                             <tbody>
-                            @if ( count($bus) > 0 )
-                            @foreach ( $bus as $data )
+                            @if ( count($drivers) > 0 )
+                            @foreach ( $drivers as $data )
                           
                                 <tr>
                                     <td class="ps-4">
@@ -61,7 +61,7 @@ use \App\Http\Controllers\BusController;
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $data->bus_name }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $data->name }}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
@@ -70,7 +70,7 @@ use \App\Http\Controllers\BusController;
                                         <p class="text-xs font-weight-bold mb-0">Admin</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                        <span class="text-secondary text-xs font-weight-bold">{{ $data->created_at }}</span>
                                     </td>
                                     <td class="text-center">
                                         <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">

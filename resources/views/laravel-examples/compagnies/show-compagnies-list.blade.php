@@ -6,16 +6,37 @@ use \App\Http\Controllers\BusController;
 
 
 <div>
-
     <div class="row">
+        <div class="col-12">
+            <div class="card mb-4 mx-4">
+                <div class="nav-wrapper position-relative end-0">
+                <ul class="nav nav-pills nav-fill flex-column p-1" role="tablist">
+                <li class="nav-item">
+                            <a class="nav-link {{ (Request::is('Autocars') ? 'active' : '') }}" href="{{ url('show-bus-list') }}" aria-selected="true">
+                            Autocars
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ (Request::is('show-compagnies-list') ? 'active' : '') }}" href="{{ url('show-compagnies-list') }}" aria-selected="true">
+                            Compagnies 
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ (Request::is('show-drivers-list') ? 'active' : '') }}" href="{{ url('show-drivers-list') }}" aria-selected="false">
+                            Chauffeurs 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
         <div class="col-12">
             <div class="card mb-4 mx-4">
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Users</h5>
+                            <h5 class="mb-0">All Compagnies</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New User</a>
+                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; Add Compagnies</a>
                         
                     </div>
                 </div>
@@ -34,10 +55,10 @@ use \App\Http\Controllers\BusController;
                                         Name
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Email
+                                        Siège
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        role
+                                        Contact:
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Creation Date
@@ -48,8 +69,8 @@ use \App\Http\Controllers\BusController;
                                 </tr>
                             </thead>
                             <tbody>
-                            @if ( count($bus) > 0 )
-                            @foreach ( $bus as $data )
+                            @if ( count($compagnie) > 0 )
+                            @foreach ( $compagnie as $data )
                           
                                 <tr>
                                     <td class="ps-4">
@@ -61,16 +82,16 @@ use \App\Http\Controllers\BusController;
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $data->bus_name }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $data->name }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">admin@softui.com</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $data->Siege }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Admin</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $data->Telephone }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">16/06/18</span>
+                                        <span class="text-secondary text-xs font-weight-bold">{{ $data->created_at }}</span>
                                     </td>
                                     <td class="text-center">
                                         <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
@@ -91,6 +112,8 @@ use \App\Http\Controllers\BusController;
             </div>
         </div>
     </div>
+         </div>
+    </div>     
 </div>
  
 @endsection
