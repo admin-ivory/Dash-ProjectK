@@ -10,22 +10,23 @@ use \App\Http\Controllers\BusController;
         <div class="col-12">
             <div class="card mb-4 mx-4">
                 <div class="nav-wrapper position-relative end-0">
-                <ul class="nav nav-pills nav-fill flex-column p-1" role="tablist">
-                <li class="nav-item">
-                            <a class="nav-link {{ (Request::is('Autocars') ? 'active' : '') }}" href="{{ url('show-bus-list') }}" aria-selected="true">
-                            Autocars
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ (Request::is('show-compagnies-list') ? 'active' : '') }}" href="{{ url('show-compagnies-list') }}" aria-selected="true">
-                            Compagnies 
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ (Request::is('show-drivers-list') ? 'active' : '') }}" href="{{ url('show-drivers-list') }}" aria-selected="false">
-                            Chauffeurs 
-                            </a>
-                        </li>
+                    <ul class="nav nav-pills nav-fill flex-column p-1" role="tablist">
+                           
+                            <li class="nav-item">
+                                <a class="nav-link {{ (Request::is('show-compagnies-list') ? 'active' : '') }}" href="{{ url('show-compagnies-list') }}" aria-selected="true">
+                                Compagnies 
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ (Request::is('Autocars') ? 'active' : '') }}" href="{{ url('show-bus-list') }}" aria-selected="true">
+                                Autocars
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ (Request::is('show-drivers-list') ? 'active' : '') }}" href="{{ url('show-drivers-list') }}" aria-selected="false">
+                                Chauffeurs 
+                                </a>
+                            </li>
                     </ul>
                 </div>
                 <div class="row">
@@ -36,7 +37,7 @@ use \App\Http\Controllers\BusController;
                         <div>
                             <h5 class="mb-0">All Compagnies</h5>
                         </div>
-                        <a href="#" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; Add Compagnies</a>
+                        <a href="{{ url('showAddCompagniesForm') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; Add Compagnies</a>
                         
                     </div>
                 </div>

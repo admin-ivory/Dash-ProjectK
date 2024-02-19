@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\CompagniesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,16 +37,24 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('billing');
 
 	Route::get('show-bus-list', [BusController::class, 'busList'])->name('show-bus-list');
+	Route::get('AddBusForm', [BusController::class, 'store'])->name('AddBusForm');
+	Route::get('showAddBusForm', [BusController::class, 'showAddBusForm'])->name('showAddBusForm');
+
 	Route::get('show-compagnies-list', [BusController::class, 'compagniesList'])->name('show-compagnies-list');
-	Route::get('show-drivers-list', [BusController::class, 'chauffList'])->name('show-drivers-list');
+	Route::get('AddCompagniesForm', [BusController::class, 'store'])->name('AddCompagniesForm');
+	Route::get('showAddCompagniesForm', [CompagniesController::class, 'showAddCompagniesForm'])->name('showAddCompagniesForm');
+	
+	Route::get('show-drivers-list', [BusController::class, 'driversList'])->name('show-drivers-list');
+	
+	Route::get('showAddDriverForm', [BusController::class, 'showAddDriverForm'])->name('showAddDriverForm');	
 	Route::get('show-trajet-list', [BusController::class, 'trajetList'])->name('show-trajet-list');
 
 	Route::get('compagnies-list', function () {
-		return view('laravel-examples/compagnies-list');
+		return view('laravel-examples/compagnies/compagnies-list');
 	})->name('compagnies-list');
 
 	Route::get('chauffeurs-list', function () {
-		return view('laravel-examples/chauffeurs-list');
+		return view('laravel-examples/chauffeurs/chauffeurs-list');
 	})->name('chauffeurs-list');
 
 	
